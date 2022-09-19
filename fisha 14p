@@ -1,0 +1,88 @@
+#a) Suma numerelor
+a,b = int(input("numarul 1= ")), int(input("numarul 2= "))
+
+def suma(a,b):
+    return a+b
+print("suma= ", suma(a,b))
+
+#b) Produsul lor
+def produs(a,b):
+    return a*b
+print("produsul= ", produs(a,b))
+
+#c) Media aritmetika
+def media(a,b):
+    return (a+b)/2
+print("media aritmetika= ", media(a,b))
+
+#d) Cel mai mare div comun
+div=[]
+def div_maxim(a,b):
+    n=0
+    for i in range(1, min(a, b)+1):
+        if a%i==b%i==0:
+            n+=1
+            div.append(i)
+div_maxim(a,b)
+print("cel mai mare divizor comun= ",div[-1])
+
+#e) Cel mai mare multiplu comun
+d=[]
+def multiplu_min(a,b):
+    return (a*b)//div[-1]
+print("cel mai mic multiplu comun= ", multiplu_min(a,b))
+
+#f) Numarul minim
+#g) Numarul maxim
+print("numarul minim= ", min(a,b))
+print("numarul maxim= ", max(a,b))
+
+#h) Suma num in formatu a+b=c, daca a,b reprez num citite
+def sumax2():
+    a,b=int(input("numarul 1= ")), int(input("numarul 2= "))
+    print("suma= ", a+b)
+sumax2()
+
+#i) Produsul num in formatu a*b=c, daca a,b reprez num citite
+def produsx2():
+    a,b=int(input("numarul 1= ")), int(input("numarul 2= "))
+    print("produsul= ", a*b)
+produsx2()
+
+#j) Toti div comuni
+print("toti divizorii comuni:", div, sep=' ')
+
+#k) 5 multipli comuni
+multipli=[]
+def multipli5(a,b):
+    m=a*b
+    for i in range(5):
+        multipli.append(m)
+        m=m*2
+multipli5(a,b)
+print("5 multipli comuni:", multipli, sep=' ')
+
+#l) cifrele care se contin in ambele num
+#m) cifrele care sunt doar in 1 num
+cifre_a=[]
+cifre_b=[]
+def ambele(a,b):
+    cifre_a.append([int(x) for x in str(a)])
+    cifre_b.append([int(x) for x in str(b)])
+    amb=[set([x for x in str(a) if x in str(b)])]
+    prim=[set([x for x in str(a) if x not in str(b)])]
+    amb.sort()
+    prim.sort()
+    return amb,prim
+print("cifrele care se contin in ambele numere:", (ambele(a,b)[0]), sep=' ')
+print("cifrele care se contin doar in primul numar: ", (ambele(a,b)[1]), sep=' ')
+
+#n) mes prietene
+def num_divizorilor(n):
+    div=[]
+    for i in range(1, n+1):
+        if n%i==0:
+            div.append(i)
+    return(len(div))
+if num_divizorilor(a)==num_divizorilor(b):
+    print("PRIETENE")
